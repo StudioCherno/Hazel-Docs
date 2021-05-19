@@ -69,6 +69,10 @@ color_scheme: dark
 plugins:
   - jekyll-seo-tag
 
+# Google Analytics
+ga_tracking: G-0VYYKNCH1P
+ga_tracking_anonymize_ip: true # Use GDPR compliant Google Analytics settings (true/nil by default)
+
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
