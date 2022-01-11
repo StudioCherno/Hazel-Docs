@@ -7,7 +7,7 @@ nav_order: 2
 # Getting Started
  
 ## Building and Running
-One of our goals is to make Hazel as easy as possible to build - if you're having any difficulties or weird errors, please let me know. We currently only support building on Windows 10 with Visual Studio 2019. You also need the following installed and in your path:
+One of our goals is to make Hazel as easy as possible to build - if you're having any difficulties or weird errors, please let me know. We currently only support building on Windows 10 with Visual Studio 2019 or 2022 (2022 is default). You also need the following installed and in your path:
 
  - [Git](https://git-scm.com/downloads)
  - [Git-LFS](https://git-lfs.github.com/)
