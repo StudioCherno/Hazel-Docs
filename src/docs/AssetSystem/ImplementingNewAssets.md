@@ -1,10 +1,3 @@
----
-layout: default
-title: Implementing New Asset Types
-parent: Asset System
-nav_order: 1
----
-
 # Implementing New Assets
 
 **NOTE: This article won't be too useful for anyone who isn't actively developing Hazel, but you can still learn a lot about how the asset system works**

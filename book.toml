@@ -1,0 +1,10 @@
+[book]
+authors = []
+language = "en"
+multilingual = false
+src = "src"
+
+[output.html]
+theme = "hazel-theme"
+default-theme = "hazel"
+additional-css = ["hazel-theme/hazel-highlight.css"]

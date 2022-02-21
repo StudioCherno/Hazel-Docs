@@ -1,9 +1,3 @@
----
-title: Supported Platforms
-layout: default
-nav_order: 3
----
-
 # Supported Platforms
 Here you can find a list of the platforms that Hazel currently supports.
 

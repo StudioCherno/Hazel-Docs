@@ -1,10 +1,3 @@
----
-layout: default
-title: Using the Asset System
-parent: Asset System
-nav_order: 0
----
-
 # Retrieving Assets
 
 Assets in Hazel are [reference counted](https://en.wikipedia.org/wiki/Reference_counting), and should always be wrapped in a ```Ref``` instance. Meaning you should pretty much never allocate an Asset on the stack, since Hazel uses intrusive reference counting, meaning the reference count is stored in the asset instance, not in the ```Ref``` instance.
