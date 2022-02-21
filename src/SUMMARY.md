@@ -1,6 +1,6 @@
 # Summary
 
-[About](./About.md)
+[Hazel Documentation](./HazelDocumentation.md)
 [Getting Started](docs/GettingStarted.md)
 [Supported Platforms](docs/SupportedPlatforms.md)
 
