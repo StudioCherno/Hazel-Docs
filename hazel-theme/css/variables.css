@@ -11,13 +11,13 @@
 /* Themes */
 
 .hazel {
-    --bg: rgb(36, 36, 36);
+    --bg: rgb(21, 21, 21);
     --fg: rgb(220, 220, 220);
 
-    --sidebar-bg: rgb(21, 21, 21);
+    --sidebar-bg: rgb(36, 36, 36);
     --sidebar-fg: var(--fg);
     --sidebar-non-existant: #505254;
-    --sidebar-active: #e69f67;
+    --sidebar-active: rgb(255, 164, 60);
     --sidebar-spacer: #45373a;
 
     --scrollbar: rgb(79, 79, 79);
@@ -25,7 +25,7 @@
     --icons: #737480;
     --icons-hover: #262625;
 
-    --links: rgb(237, 192, 119);
+    --links: rgb(255, 164, 60);
 
     --inline-code-color: rgb(237,192,119);
 

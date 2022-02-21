@@ -7,4 +7,4 @@ src = "src"
 [output.html]
 theme = "hazel-theme"
 default-theme = "hazel"
-additional-css = ["hazel-theme/hazel-highlight.css"]
+additional-css = ["hazel-theme/custom.css", "hazel-theme/hazel-highlight.css"]
