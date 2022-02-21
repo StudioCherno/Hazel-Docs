@@ -1,10 +1,10 @@
 # Summary
 
 [Hazel Documentation](./HazelDocumentation.md)
-[Getting Started](docs/GettingStarted.md)
-[Supported Platforms](docs/SupportedPlatforms.md)
+[Getting Started](GettingStarted.md)
+[Supported Platforms](SupportedPlatforms.md)
 
 # Asset System
-- [Using](docs/AssetSystem/Using.md)
-- [Implementing New Assets](docs/AssetSystem/ImplementingNewAssets.md)
+- [Using](AssetSystem/Using.md)
+- [Implementing New Assets](AssetSystem/ImplementingNewAssets.md)
 
