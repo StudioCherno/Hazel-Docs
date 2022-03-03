@@ -15,13 +15,13 @@ Assuming that's all installed and ready to go, you can proceed with the followin
 4. Open `Hazelnut/SandboxProject/Sandbox.sln` and build in either `Debug` or `Release`. This will build the C# module of the _Sandbox_ project which is necessary to properly play the various scenes in the project.
 
 ## Vulkan
-Hazel requires Vulkan SDK 1.3.204.0 to be installed, and the `VULKAN_SDK` environment variable set to your installation path. If you do not have the correct version installed, the Setup script should offer to download and install the correct version for you.
+Hazel requires Vulkan SDK 1.3.204.1 to be installed, and the `VULKAN_SDK` environment variable set to your installation path. If you do not have the correct version installed, the Setup script should offer to download and install the correct version for you.
 
 The Vulkan SDK installer now offers to download and install shader debug libraries - you **must** install these libraries if you would like to build Hazel in the Debug configuration. To do so, simply check the `(Optional) Debuggable Shader API Libraries - 64 bit` option in the `Select Components` part of the installer, as seen in the image below.
 
 ![VulkanSDKInstaller](res/GettingStarted_VulkanDebugLibs.jpg)
 
-You can also [download and install the Vulkan SDK manually](https://sdk.lunarg.com/sdk/download/1.3.204.0/windows/VulkanSDK-1.3.204.0-Installer.exe) if you wish, or if the Setup scripts have failed.
+You can also [download and install the Vulkan SDK manually](https://sdk.lunarg.com/sdk/download/1.3.204.1/windows/VulkanSDK-1.3.204.1-Installer.exe) if you wish, or if the Setup scripts have failed.
 
 ## Pulling the latest code
 The `master` branch is required to always be stable, so there should never be any build errors or major faults. Once you've pulled the latest code, remember to run `Scripts/Setup.bat` **again** to make sure that any new files or configuration changes will be applied to your local environment.
