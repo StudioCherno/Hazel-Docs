@@ -18,11 +18,11 @@ These are platforms that Hazel most likely won't work on.
 
 * Windows 7
 * MacOS
-* Linux Based Platforms (Will eventually be supported)
+* Linux Based Platforms (May eventually be supported)
 
 # Supported Editors + Toolchains
 Hazel will in theory support any IDE or toolchain that [https://premake.github.io/docs/Using-Premake#using-premake-to-generate-project-files](premake) supports, however we've only tested the toolchains/IDEs listed below.
 
 * Visual Studio 2022
-* Visual Studio 2019
+* Visual Studio 2019 (No longer supported)
 * CodeLite
