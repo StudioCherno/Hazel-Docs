@@ -22,7 +22,7 @@ One of Hazel's major engineering goals is to promote easy-to-read, good, clean c
 Your code should ideally be able to read like an English book as much as possible. If you can make your function make more sense by expanding variable names or adding extra comments - do that!
 
 ## Code Style
-By now Hazel shouldn't really need a Code Style guide, because there is enough existing code in the codebase to answer ever stylistic question you might have. Long story short - if you don't know what style to write your code in, look around! There's plenty of code, and your goal is to blend in. Nevertheless, I will try and officially summarize the main points here.
+By now Hazel shouldn't really need a Code Style guide, because there is enough existing code in the codebase to answer every stylistic question you might have. Long story short - if you don't know what style to write your code in, look around! There's plenty of code, and your goal is to blend in. Nevertheless, I will try and officially summarize the main points here.
 
 ### Naming
 
