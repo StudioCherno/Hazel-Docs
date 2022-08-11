@@ -1,7 +1,7 @@
 # Getting Started
  
 ## Requirements
-One of our goals is to make Hazel as easy as possible to build - if you're having any difficulties or weird errors, please let us know. We currently only support building on Windows 10 and Windows 11 with Visual Studio 2022, Visual Studio 2019 is no longer supported. You also need the following installed:
+One of our goals is to make Hazel as easy as possible to build - if you're having any difficulties or weird errors, please let us know. We currently only support building on Windows 10 and Windows 11 with Visual Studio 2022, Visual Studio 2019 is no longer supported. The minimum supported version of Visual Studio 2022 is 17.2.0, Hazel may not compile on versions before that. You also need the following installed:
 
 Here you'll find a list of all the third-party tools and SDKs that you'll need to install in order to build Hazel:
  - [Git](https://git-scm.com/downloads)
