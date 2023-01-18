@@ -15,7 +15,7 @@ Make sure that you add everything except for the .NET Framework SDK to your PATH
 ## Building and Running
 Assuming that's all installed and ready to go, you can proceed with the following:
 
-1. Clone the repository: `git clone --recursive https://gitlab.com/ChernoProjects/Hazel-dev.git`
+1. Clone the repository: `git clone --recursive https://github.com/StudioCherno/Hazel.git`
 2. Run `Scripts/Setup.bat` - this will download required libraries and make sure everything is setup correctly
 3. Open `Hazel.sln` and build either `Debug` or `Release` `x64` - Hazelnut should be the startup project so really you can just hit `F5` to build and debug the startup project. By default, this will load the _Sandbox_ project found in `Hazelnut/SandboxProject/Sandbox.hproj`
 4. Open `Hazelnut/SandboxProject/Sandbox.sln` and build in either `Debug` or `Release`. This will build the C# module of the _Sandbox_ project which is necessary to properly play the various scenes in the project.
