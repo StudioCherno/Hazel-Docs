@@ -1,0 +1,295 @@
+# Hazel 2023.1 Release Notes 📝
+
+## New Features 📈
+
+- Added Multi-threading to runtime 
+- Added Asset Packaging
+- Added Sound Graphs
+- Added `Gizmo` support for multi-entity editing
+- Added Editor camera in play mode (`ALT+C` for now)
+- Added `C#` Animation Library
+- Added `Debug Renderer`
+- Added `SpriteRendererComponent`
+    - Added ability to easily create `2D Sprites` via `Scene Hierarchy Panel` 
+- Added script creation through `Hazelnut` **HZ-41**, **HZ-37**
+    - Added ability to create `C#` scripts from within  `Hazelnut` 
+    - You can now open `C#` scripts in `Visual Studio` from `Hazelnut` by `DOUBLE-CLICKING` on the file in the Content Browser (opens in the ***first*** `Visual Studio` instance that you opened)
+    - Creating or deleting a `C#` script from `Hazelnut` now regenerates the `C#` project
+    - `C#` Assemblies are no longer built into `Assets/Scripts/Binaries`, they're built into `Binaries` in the project base directory (although Hazel will still look in `Assets/Scripts/Binaries` just in case)
+- Added the ability to unparent an `Entity` via `C#`
+    - Setting `Parent` to `null` will now cause the `Entity` to be unparented
+- Some `RigidBody` changes
+    - Entities with dynamic `RigidBodies` now store their transform in local space just like all other entities
+    - Added setter for `RigidBodyComponent.BodyType`, meaning we can now convert `RigidBodies` from `static` to `dynamic` (and vice versa) during runtime!
+- Re-added equality operators for `Entity` and `Prefab`
+- Runtime now pre-loads all required assets when loading a scene
+    - Previously this was done on-demand which caused frame time spikes
+    - In the future requires a workflow with domains or something
+- Reworked the editor console  **GitLab #200**, **HZ-63**
+    - Added back Clear on Play button
+    - Switched filter icons to `Font Awesome` glyphs, they look better and they don't require us to use additional textures
+    - Console is no longer cleared after 500 (499) messages
+    - Console now automatically scrolls to the latest message
+    - Automatic scrolling only happens if you're scrolled all the way to the bottom, meaning it can be stopped by scrolling up in the console
+- Added Depth of Field
+    - `C#` bindings for `DOF` settings
+    - Added `Show Gizmos` in Play Mode
+    - Can also now control `gizmos` in play mode if setting is checked
+    - Added `Renderer::CopyImage`
+    - Added `ImageUsage::HostRead`
+    - Added Transfer `bool` to `ImageSpecification` for transfer ops
+    - `ValueWrapper`/`FieldStorage` fixes (needs more fixing)
+- Added Spot Lights
+    - Only one shadow casting spot light for now
+    - Added proper soft shadow support for spot lights
+    - Added discard to `Renderer2D.glsl` shader for better transparency
+- Changed `TransformComponent` to store rotation as quaternion
+    - Import of assets where a sub-mesh is rotated around `Y-Axis` by an exact multiple of `90 degrees`
+    - Distortion of animated assets if bones are similarly `Gimbal-Locked`
+    - Rotating via `ImGuizmo` no longer forces rotation into range `-180` to `180`.
+    - Activating `ImGuizmo` over a an `Entity` with gimbal locked rotation is now less likely to inadvertently change the transform.
+    - No small drift due numerical precision issues in matrix operations.
+- `SHIFT-CLICK` in viewport now selects "root" `Entity`
+    - `SHIFT-CLICKING` the `left mouse button` in the viewport will now select the clicked-on objects top-level `Entity`.  This is useful when the object you've clicked on is a small part of a dynamic mesh: `SHIFT-CLICK` will now select the whole object, which makes it easy to move that object around or `CTRL-D` duplicate it.
+    - `RIGHT-CTRL`, and `SHIFT` keys now affect selection also (used to be only `LEFT-CTRL`, `LEFT-SHIFT`)
+    - If an `Entity` is selected, then any meshes in child entities are also submitted to the renderer as "selected"  (this gives you the orange outline in the viewport around the `Entity`and all of its children, so you can see much clearer exactly what will be moved around if you were to change selected entities transform etc.)
+- `C# Entities` can now be compared using `==` and `!=`
+- Added `DOUBLE CLICKING` on an asset field in a component now opens that asset in the relevant editor / window
+- Some multi-entity gizmo changes
+    - Rotation gizmo is now rendered correctly when rotating multiple entities at once
+    - Disabled scaling gizmo when editing multiple entities due to severe bug. Scaling via the properties panel still works
+- Added `AudioEventsManager` class to process and dispatch Audio Events
+- Material Tables now use `AssetHandles` instead of `Ref<MaterialAsset>`
+- Added a way to set entities' transforms to the Editor Camera's transform + alternate ways to create cameras in scene
+
+## Changes ♻️
+
+### Core <img src="https://hazelengine.com/res/H_logo_square.png"  width="15" height="15">
+
+- Changed default `ScriptModulePath` to `Assets/Scripts/Binaries`
+- Changed `Hazel::Timer` internally to use microseconds instead of nanoseconds for HUGE performance gains
+- Reworked how `Content Browser` items being "opened" is handled
+    - The new method of handling `Content Browser` item activation is now more inline with other item actions
+    - The new method allows other areas of the engine to handle item activation, so `EditorLayer` now handles when a scene asset is double clicked, by opening it in the viewport
+    - This new method will also allow e.g script files to be opened in `Visual Studio` by `DOUBLE CLICKING` on it in the future (planning on adding that soon)
+- Improved `Convex Mesh Collider Cooking`
+    - It's no longer possible to set a zero-area triangle threshold of 0 (will be capped at 0.01)
+    - If we fail to cook a convex submesh because a zero-area triangle was detected we will attempt to cook it again without checking for zero-area triangles, since it's more of an optimization. We may want to change this so that we still check for zero-area triangles but set the threshold really low
+    - Improved failed cooking log messages
+- `PhysicsLayerManager` no longer allows having multiple layers with the same name
+- Added virtual functions to `AssetEditorPanel` to optionally push `ImGui` style to window
+- Added a guard to `AudioCommandsRegistry` shutdown to prevent overwriting file with empty registry
+- The open state of panels is now serialized between sessions
+- `Box Collider 2D` and `Circle Collider 2D` now takes offset into account
+- Hazel now builds the script core if it's not already built on launch
+
+### Hazelnut <img src="https://hazelengine.com/res/H_logo_square.png"  width="15" height="15">
+
+- Disabled the mesh viewer **GitLab #138**, **HZ-163**
+- Disabled grid by default when scene is playing **HZ-50**
+- Changed the mesh importer to take the correct value for roughness
+- Creating a new `Entity` in a parent will now position the child at the parents origin
+- Added (Static) `MeshComponent::Visible`
+- Added support for public `C#` strings again
+- `Prefab` internal workflow fixes and improvements **HZ-58**, **HZ-56**, **HZ-55**, **HZ-52**
+    - `SceneHierarchyPanel` will now no longer silently remove `Prefab components` from entities when asset handle is invalid 
+    - Instead will display `Entity` text in red, retaining `Prefab component` 
+    - Added `"Advanced Mode"` to `Hazelnut` to support additional UI that normally shouldn't be visible
+    - This includes viewing the `PrefabComponent` in Properties panel for Entity
+    - Changed `UI::PropertyInput` for `uint64_t` to have default step value of `0`, meaning steps will not be displayed
+- Shaders are now included in the `Hazelnut` project
+- When loading a scene, if there is a newer auto-save then prompt to load that one instead
+- Added shortcut for directory creation in the Content Browser `CTRL + SHIFT + N` **HZ-49**
+- Added Content Browser Icons
+- Added Component Icons
+- Removed shortcut for scene creation previously `CTRL + N`
+
+### Audio 🎧
+
+- Added `ALT + CLICK` to remove connections from a node pin
+- Now only one connection can be connected to any given node input
+- Proper sorting of nodes before save/compile
+
+### Scripting 📜
+
+- Added settable controller axis deadzones
+- Extended controller button polling to include events like `Held` / `Pressed` / `Released`
+- Extended mouse button polling to include events like `Held` / `Pressed` / `Released`
+- `C#` Assemblies are no longer considered assets
+- Script Engine is now directly notified when `C#` assemblies are modified
+- Restored code that initializes runtime duplicated entities and `Prefabs` (now checked every frame)
+- Private fields are now considered "hidden"
+
+### Projects 🧰
+
+- Newly created projects will now have the default meshes **HZ-30**
+- Replaced default meshes from `FBX` to `GLTF`
+- Recent project paths are now verified, and if they are not valid they will be removed
+
+
+## Bug Fixes 🐞
+
+- Fixed beginning second property grid in script components when there are no fields in the script to render
+- Fixed Content Browser Item being stuck in rename when its added from outside of the editor
+- Fixed Editor Console messages not being cleared when switching projects **HZ-199**
+- Fixed meshes with invalid mesh sources attempting to be packaged into the asset pack
+- Fixed clearing materials not working for multiple entities
+- Fixed an unnamed entity having an empty string as a display name.
+- Fixed weird behavior where importing meshes would create memory-only copies of mesh materials
+- Fixed sound graph sources not being released when finished
+- Fixed clicking outside the "Build Asset Pack" popup closing it fully
+- Fixed "Build Asset Pack" popup not closing automatically when done **HZ-195**
+- Fixed Rotation gizmo being rendered incorrectly when rotating multiple entities at once
+- Fixed crash where starting an asset pack build while another one is happening would crash the engine
+- Fixed runtime not having a asset pack path by default **HZ-194**
+- Fixed Skybox being rendered incorrectly when SkyLightComponent is present but not set to anything **HZ-135** **HZ-198**
+- Fixed long filenames exceeding thumbnail in content browser **HZ-191**
+- Fixed the issue when Audio Commands Registry being overwritten by loading a different project **HZ-152**
+- Fixed scripting issue - Hazel now builds the projects `C#` `DLL` when loading the project if it hasn't been built yet **HZ-158**
+- Fixed wrong amount of materials being displayed on mesh changes **HZ-85**
+- Fixed "Open Visual Studio Solution" always opening the solution for the first project loaded **HZ-192**
+- Fixed unsafe access to `s_Controllers` map
+- Fixed crash when loading mesh with an embedded texture **HZ-173**
+- Fixed crash when instantiating a prefab via `C#` and then destroying it within the same frame **HZ-181**
+- Fixed not being able to delete items in the Content Browser without the mouse **HZ-83**
+- Fixed Sound Config changes not updating loaded Sound Config assets. **HZ-166**
+- Fixed `AddComponent` Popup showing on the primary monitor if `Hazelnut` is open on the secondary monitor **HZ-49**
+- Fixed items not being deselected if navigated out through the breadcrumb
+- Fixed lights being positioned incorrectly in play mode while parented to a physics body **HZ-180** 
+- Fixed crash on simulation stop where a 2D `RigidBody` is present **HZ-179**
+- Fixed `2D Colliders` being displayed only in editor scene.
+- Fixed "Show Physics Colliders" for selected `Entity` only working on `PhysX` colliders **HZ-157**
+- Fixed skybox getting distorted when the camera is far away from the origin of the world **HZ-175**
+- Fixed new scenes always having the name "UntitledScene" **HZ-170**
+- Fixed incorrectly displayed bounding boxes **HZ-174**
+- Fixed `C#` assembly not being reloaded consistently **HZ-158**
+- Removed stack trace from `GetComponent` when no component is found
+- Fixed `VulkanSDK` not being able to be downloaded through `Setup.bat`
+- Fixed asset renaming being very bugged **HZ-45**, **HZ-150**, **HZ-155**
+- Fixed crash when a `FixedJointComponent` without a connected `Entity` set is in the scene **HZ-168**
+- Fixed items being activated if an item was double clicked whilst renaming **HZ-167**
+- Fixed pre-loading of audio sources and added preview for sound configs with audio file sources.
+- Fixed Arcball camera not working when mouse would navigate outside of the viewport **HZ-138**
+- Fixed crash when removing a script component while playing **HZ-165**
+- Fixed `Hazelnut` not updating when deleting files from outside the editor **HZ-161**
+- Fixed bug with dragging a scene to the "Default Scene" field **HZ-78**
+- Fixed crash when showing bounding boxes while having entities with no mesh assigned
+- Fixed renaming bug when creating new folders **HZ-45**, **HZ-150**, **HZ-155**
+- Fixed crash caused by not clearing file system watcher callbacks when unloading a project
+- Fixed asset creation issue for duplicate default names **HZ-149**
+- Fixed issue with selecting a folder immediately after creating it **HZ-150**
+- Fixed crash when opening Audio Events editor in a new project **HZ-145**
+- Fixed old `C#` classes showing up in asset dropdown menu after they've been renamed
+- Fixed crash when using the `RIGHT-CLICK` "Duplicate" option in the Content Browser
+- Fixed scene name not being displayed properly (was always "UntitledScene") **HZ-137**
+- Fixed crash when calling `Physics.Raycast2D` from `C#` **HZ-133**
+- Fixed Editor Console not being thread safe
+- Fixed runtime arrays not functioning for `C#` classes (only worked for e.g `int`, `float`, etc...)
+- Fixed a crash caused by destroying runtime entities that had scripts
+- Fixed `RigidBodies` not having correct translation when instantiated using `InstantiateChild` **HZ-179**
+- Fixed wrong label for `BoxColliderComponent` `HalfSize`
+- Fixed crash when caching `C#` structs 
+- Fixed `Soundgraph` default values not working **GitLab #204** 
+- Fixed setting reference type values in `C#` arrays from C++
+- Fixed `Entity.As<>()` returning `nullptr` if the script instance hasn't been instantiated
+- Fixed Script components serialized with `ModuleName` not deserializing properly
+- Fixed jankyness with loading `C# DLLs` (we now properly support loading from both Assets/Scripts/Binaries as well as ProjectDirectory/Binaries)
+- Fixed arrays not being set in the `C#` runtime
+- Fixed runtime length getter crashing for `null` arrays
+- Fixed string fields crashing the runtime (due to data being interpreted incorrectly)
+- Scripting engine now differentiates between script entities and instances of scripts (in terms of storage at least)
+- Reloading now works + arrays no longer have to be handled separately
+- Fixed `Prefabs` not working with script components
+- Fixed issue where reader for audio files is not created if the file is not in Sound Bank
+- Fixed `RIGHT-CLICKING` deselecting everything in the Content Browser
+- Fixed crash when deleting a child `Entity` along with its parent
+- Fixed `AudioCommandsRegistry` lifetime not being tied to Project lifetime **GitLab #199**
+- Fixed Closing sound graph editor after adding a new graph property crashes `Hazelnut` **GitLab #202**
+- Fixed new project not appearing in Recent Projects
+- Fixed zero duration animations not being ignored when importing `DCC`
+- Fixed renaming a sound graph property causing it to lose its value **GitLab #201**
+- Fixed `Scripting->ShowHiddenFields` not being deserialized
+- Fixed major issue in ImGuiUtilities where string format would not match data type
+- Fixed `Prefab` updating crash **HZ-58**, **HZ-56**
+- Fixed `AssetManager` not correctly generating unique names past (01) 
+- Fixed `PhysX` crash on runtime shutdown
+- Fixed bug with deserializing physics layer `IDs`
+- Fixed actor lock flags being cast to the wrong type
+- Fixed not being able to deselect using `CTRL` in Content Browser
+- Fixed possible `PhysX Debugger` leak 
+- Fixed spotlight shadows
+- Fixed `AudioCommandsRegistry` being `Shutdown` twice on `Application` shutdown
+- Fixed parameter not being applied if it is the only parameter of the sound graph
+- Fixed hash still working incorrectly with substring `string_view`
+- Fixed `Identifier` taking whole data pointed to by `string_view`
+- Fixed delete popup to no longer be triggered by pressing Delete while renaming **HZ-59**
+- Fixed a crash that could happen while renaming and pressing escape
+- Fixed crash when attempting to post invalid trigger **GitLab #197**
+- Fixed Links connected to orphan nodes are compiling and crashing. **GitLab #198**
+- Fixed reading wave source issue
+- Fixed audio registry not being shutdown on project change
+- Fixed recursive including between `ImGui.h` and `ImGuiWidgets.h`
+- Fixed crash caused by referencing Materials from `C#`
+- Fixed entities being able to be deleted if the viewport or scene hierarchy wasn't focused
+- Fixed not being able to deselect entities using `CTRL + CLICK` after `SHIFT` selecting
+- Fixed incorrect mixed values for transform components
+- Fixed node link not drawing when "Create New Node" popup activates
+- Fixed issue with quick dragging link from a pin
+- Fixed crash caused by having `C#` arrays with `null` values in them
+- Fixed issue with `C#``Entity` caching
+- Fixed `C#` exceptions causing engine to crash **GitLab #196**
+- Fixed `Entity` not being saved when having a `static RigidBody` **GitLab #194**
+- Fixed `Hazel Tools` extension not catching exceptions properly
+- Fixed crash that would happen when we try to make an array field hidden
+- Fixed `SHIFT` selecting not working in `Scene Hierarchy Panel`
+- Fixed old rotation API being used for Spot Lights post-merge
+- Fix `CTRL-D` sometimes not duplicating things
+- Fix scripts not working for `Prefabs` instantiated during runtime
+- Fixed radius not being passed into Physics.SphereCast
+- Fixed some issues with scripting
+    - Fixed issue where Hazel would consider a field both public and private at times
+    - Fixed crash caused by attempting to call a constructor on a struct
+    - Fixed crash when converting a `MonoArray` to `std::vector`   
+- Fix crash when trying to set value of a script field of type `bool`
+- Fixed some Editor Panel issues / code styles
+    - Removed redundant `if (!isOpen)` checks from editor panels
+    - Wrapped all editor panels ImGui code inside `ImGui::Begin` scope
+    - Also cleaned up `ImGui::Begin` if statements to ensure that `ImGui::End` is called even if begin returns false (this is how the `ImGui` examples does it)
+- Fixed crash that would happen when duplicating an `Entity` with a `ScriptComponent` that also has children
+- Fixed crash that would happen when instantiating a `Prefab` or duplicating an `Entity` that has an invalid script attached
+- Fixed minor issue where the scene name would not be copied in `Scene::CopyTo`
+- Fixed a crash that would happen when getting a `null` `C#` fields value
+- Fixed constructor calling to always call the parameterless constructor
+- Fixed incorrect types passed to `ValueWrapper` in `ScriptUtils::GetDefaultValueForType`
+- Fixed crash when clearing a `C#` class in a `ScriptComponent`
+- Fixed `ValueWrapper`s buffer getting corrupted on a copy-assignment (would occur if it tried to do a copy assignment on itself) 
+- Fixed crash when trying to get collider debug mesh if it doesn't exist
+- Fixed children not being displayed when parent is searched for in scene hierarchy panel
+- Fixed Create New Project crash **GitLab #191**
+- Fix multi-select in scene hierarchy not working
+- Fixed crash where project would try and load non-existent scene
+- Fixed `Hazel-ScriptCore` being built into wrong directory
+- Removed option for reloading `C#` assembly on play
+- Fixed Hazel displaying the wrong link **GitLab #190**
+- Fixed some scripting related issues
+    - Hazel can now automatically reload `C#` `DLLs` on build again
+    - Hazel now detects if an asset has the wrong asset type specified in the AssetRegistry file (and automatically corrects it)
+    - Fixed `AssetType::ScriptModule` being serialized as `Script`
+    - Some slight refactoring in `ScriptEngine` to get reloading to work properly again + clean up some code
+    - Fixed incorrect `C#` PDB type set in premake files
+    - `C#` `DLLs` now appear in the Content Browser (we may want to prevent this in the future)
+- Fixed `Normal` and `Metalness` maps no being able to be cleared **GitLab #189**
+- Fix crash when importing animation asset with missing tracks
+- Fix rendering of dynamic meshes that have mix of animated and non-animated sub-meshes
+- Fix crash when dragging mesh asset into scene
+- Fix an issue caused by merge of scripting branch
+- Fixed issue with default value in `FieldStorage`
+- Fixed crash when iterating over script entities on runtime shutdown
+- Fixed `C#` arrays not working properly with `Hazelnut`
+- Fixed crash when trying to get a debug mesh collider without having cooked the collider mesh
+- Fixed `C#` `ValueTypes` being boxed when setting from `Hazelnut`
+- Fixed naming of script internal calls for `SetParameter`
+- Fixed audio issues with surround audio endpoint devices
+- Fixed crash related to rendering audio node for failed to initialize sound source.
+- Fixed clean up failing to initialize sources and objects
+- Fix crashes on `Hazelnut` exit **HZ-147**

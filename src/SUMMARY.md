@@ -13,3 +13,7 @@
 # Asset System
 - [Using](AssetSystem/Using.md)
 - [Implementing New Assets](AssetSystem/ImplementingNewAssets.md)
+
+# Hazel Release Notes
+
+- [Hazel2023.1](HazelReleaseNotes/Hazel2023.1.md)
