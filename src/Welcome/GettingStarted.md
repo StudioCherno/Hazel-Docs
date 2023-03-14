@@ -28,7 +28,7 @@ Hazel makes use of C# as a scripting language, and because of that we also provi
 
 If you're using Visual Studio to build Hazel you'll have to open the Visual Studio Installer program, and make sure you've selected the ".NET desktop development" workload from the "Workloads" tab, you can find an example of this in the image below.
 
-![DotNETSDKInstallation](res/NETFrameworkWorkload.jpg)
+![DotNETSDKInstallation](/res/NETFrameworkWorkload.jpg)
 
 You may be required to restart your computer after installing the workload.
 
@@ -37,7 +37,7 @@ Hazel requires Vulkan SDK 1.3.204.1 to be installed, and the `VULKAN_SDK` enviro
 
 The Vulkan SDK installer now offers to download and install shader debug libraries - you **must** install these libraries if you would like to build Hazel in the Debug configuration. To do so, simply check the `(Optional) Debuggable Shader API Libraries - 64 bit` option in the `Select Components` part of the installer, as seen in the image below.
 
-![VulkanSDKInstaller](res/GettingStarted_VulkanDebugLibs.jpg)
+![VulkanSDKInstaller](/res/GettingStarted_VulkanDebugLibs.jpg)
 
 You can also [download and install the Vulkan SDK manually](https://sdk.lunarg.com/sdk/download/1.3.204.1/windows/VulkanSDK-1.3.204.1-Installer.exe) if you wish, or if the Setup scripts have failed.
 

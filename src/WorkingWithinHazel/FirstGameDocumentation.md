@@ -268,8 +268,6 @@ Now we will add physics to our game and make the objects capable of collisions w
 
 Now if you have followed the steps up until now, you should upon playing your scene see a rolling ball
 
-![Player Rolling](/res/FirstGameDocumentation/PlayerRolling.gif)
-
 ## 9. Duplicating the Spike Entity
 
 Parent our spike entity to our Spikes entity, by dragging the former onto the latter in Scene Hierarchy Panel. Having done that select the Spike Entity and press `Ctrl + D` four times. Now the Spikes entity should be the parent to five Spike Entities, all of which contain a Static Rigid Body and a Collider. All that's left is to position them along our Ground and this step will be done!

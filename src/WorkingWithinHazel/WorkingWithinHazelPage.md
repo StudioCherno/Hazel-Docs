@@ -28,7 +28,7 @@ Here you will learn the different workflow in order to create within Hazel.
             <div class="pageItem">
                 <a id="pageLink" href="/WorkingWithinHazel/FixingBrokenPrefabReferences.md">
                     <div class="imageContainer">
-                        <img data-src="/res/BrokenPrefabs/BrokenPrefab.png" src="/res/BrokenPrefabs/BrokenPrefab.png" loading="lazy" />
+                        <img data-src="/res/BrokenPrefabs/BrokenPrefab.PNG" src="/res/BrokenPrefabs/BrokenPrefab.PNG" loading="lazy" />
                     </div>
                     <div class="info">
                         <div class="content">
