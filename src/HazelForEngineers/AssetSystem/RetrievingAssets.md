@@ -1,4 +1,7 @@
-# Retrieving Assets
+<div class="title"> 
+    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <h1> Retrieving Assets </h1>
+</div>
 
 Assets in Hazel are [reference counted](https://en.wikipedia.org/wiki/Reference_counting), and should always be wrapped in a ```Ref``` instance. Meaning you should pretty much never allocate an Asset on the stack, since Hazel uses intrusive reference counting, meaning the reference count is stored in the asset instance, not in the ```Ref``` instance.
 
@@ -26,7 +29,7 @@ Ref<PhysicsMaterial> material = AssetManager::GetAsset<PhysicsMaterial>("Physics
 
 # Creating New Assets
 
-Most of the time you won't need to create assets programitcally, but Hazel does support doing so.
+Most of the time you won't need to create assets programmatically, but Hazel does support doing so.
 
 ```cpp
 Ref<PhysicsMaterial> newMaterial = AssetManager::CreateNewAsset<PhysicsMaterial>("MyMaterial.hpm", "Physics/", ...);

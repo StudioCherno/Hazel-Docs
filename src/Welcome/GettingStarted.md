@@ -1,4 +1,7 @@
-# Getting Started
+<div class="title"> 
+    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <h1> Getting Started 🛠️ </h1>
+</div>
  
 ## Requirements
 One of our goals is to make Hazel as easy as possible to build - if you're having any difficulties or weird errors, please let us know. We currently only support building on Windows 10 and Windows 11 with Visual Studio 2022, Visual Studio 2019 is no longer supported. The minimum supported version of Visual Studio 2022 is 17.2.0, Hazel may not compile on versions before that. You also need the following installed:
@@ -41,6 +44,31 @@ You can also [download and install the Vulkan SDK manually](https://sdk.lunarg.c
 ## Pulling the latest code
 The `master` branch is required to always be stable, so there should never be any build errors or major faults. Once you've pulled the latest code, remember to run `Scripts/Setup.bat` **again** to make sure that any new files or configuration changes will be applied to your local environment.
 
+## Supported Platforms
 
-## Next Steps
-Probably an overview of Hazelnut and the basic architecture.
+Here you can find a list of the platforms that Hazel currently supports.
+
+If you can't find the platform you're looking for on this page you should assume that Hazel does not currently, and most likely never will, support that platform.
+
+### Fully Supported
+These are the platforms that Hazel has been tested on, and we've determined that Hazel should run without any serious problems.
+
+If you find an issue relating to any of these platforms please open an issue here: [https://github.com/StudioCherno/Hazel/issues]()
+
+* Windows 10 (64-bit)
+* Windows 11 (64-bit)
+
+**NOTE:** Hazel currently only considers 64-bit Windows versions supported, and it's unlikely that 32-bit support will ever be added
+
+### Unsupported Platforms
+These are platforms that Hazel most likely won't work on.
+
+* Windows 7
+* MacOS
+* Linux Based Platforms (May eventually be supported)
+
+### Supported Editors + Toolchains
+Hazel will in theory support any IDE or toolchain that [https://premake.github.io/docs/Using-Premake#using-premake-to-generate-project-files](premake) supports, however we've only tested the toolchains/IDEs listed below.
+
+* Visual Studio 2022
+* CodeLite

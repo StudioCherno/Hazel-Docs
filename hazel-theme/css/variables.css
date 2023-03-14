@@ -13,6 +13,7 @@
 .hazel {
     --bg: rgb(21, 21, 21);
     --fg: rgb(220, 220, 220);
+    --bg-alt: rgb(27, 27, 27);
 
     --sidebar-bg: rgb(36, 36, 36);
     --sidebar-fg: var(--fg);
@@ -51,8 +52,9 @@
 }
 
 .ayu {
-    --bg: hsl(210, 25%, 8%);
+    --bg: rgb(15, 20, 26);
     --fg: #c5c5c5;
+    --bg-alt: rgb(21, 26, 32);
 
     --sidebar-bg: #14191f;
     --sidebar-fg: #c8c9db;
@@ -91,8 +93,10 @@
 }
 
 .coal {
-    --bg: hsl(200, 7%, 8%);
+    --bg: rgb(19, 21, 22);
     --fg: #98a3ad;
+    --bg-alt: rgb(25, 27, 38);
+
 
     --sidebar-bg: #292c2f;
     --sidebar-fg: #a1adb8;
@@ -131,8 +135,9 @@
 }
 
 .light {
-    --bg: hsl(0, 0%, 100%);
+    --bg: rgb(255, 255, 255);
     --fg: hsl(0, 0%, 0%);
+    --bg-alt: rgb(249, 249, 249);
 
     --sidebar-bg: #fafafa;
     --sidebar-fg: hsl(0, 0%, 0%);
@@ -171,8 +176,9 @@
 }
 
 .navy {
-    --bg: hsl(226, 23%, 11%);
+    --bg: rgb(22, 25, 35);
     --fg: #bcbdd0;
+    --bg-alt: rgb(28, 31, 41);
 
     --sidebar-bg: #282d3f;
     --sidebar-fg: #c8c9db;
@@ -211,8 +217,9 @@
 }
 
 .rust {
-    --bg: hsl(60, 9%, 87%);
+    --bg: rgb(225, 225, 219);
     --fg: #262625;
+    --bg-alt: rgb(219, 219, 213);
 
     --sidebar-bg: #3b2e2a;
     --sidebar-fg: #c8c9db;
@@ -252,8 +259,9 @@
 
 @media (prefers-color-scheme: dark) {
     .light.no-js {
-        --bg: hsl(200, 7%, 8%);
+        --bg: rgb(19, 21, 22);
         --fg: #98a3ad;
+        --bg-alt: rgb(25, 26, 28);
 
         --sidebar-bg: #292c2f;
         --sidebar-fg: #a1adb8;
@@ -289,5 +297,26 @@
         --searchresults-border-color: #98a3ad;
         --searchresults-li-bg: #2b2b2f;
         --search-mark-bg: #355c7d;
+    }
+}
+
+@media screen and (min-width: 1061px) {
+    :root {
+        --column-count: 3;
+        --column-width: 220px;
+    }
+}
+
+@media screen and (max-width: 1060px) {
+    :root {
+        --column-count: 2;
+        --column-width: 170px;
+    }
+}
+
+@media screen and (max-width: 725px) {
+    :root {
+        --column-count: 1;
+        --column-width: 170px;
     }
 }

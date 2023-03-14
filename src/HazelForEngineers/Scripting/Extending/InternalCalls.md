@@ -1,3 +1,8 @@
+<div class="title"> 
+    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <h1> Internal Calls </h1>
+</div>
+
 # Adding Internal Calls (Interop with C# and C++)
 You should only add an internal call if you want C# code to call some function in C++, you might want this if you want the added performance of C++, or because you need to interface with, or expose a C++ API to C#.
 

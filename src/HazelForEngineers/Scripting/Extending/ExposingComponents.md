@@ -1,4 +1,7 @@
-# Exposing Components from C++ to C#
+<div class="title"> 
+    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <h1> Exposing Components from C++ to C# </h1>
+</div>
 This page will tell you all the necessary steps you'll need to follow in order to expose a component from C++ to C#.
 
 Here are the outline of the step you'll need to complete to expose a component to C#:
@@ -32,7 +35,7 @@ public Mesh ColliderMesh
 }
 
 // This is the better way of implementing this property:
-// First we add a private memeber called m_ColliderMesh.
+// First we add a private member called m_ColliderMesh.
 private Mesh m_ColliderMesh = null;
 
 // Secondly we add an AssetHandle property called ColliderMeshHandle,

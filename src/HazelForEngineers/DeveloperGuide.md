@@ -1,4 +1,7 @@
-# Developer Guide
+<div class="title"> 
+    <img src="../res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <h1> Developer Guide </h1>
+</div>
 
 This document is for Hazel engineers working on the engine.
 
@@ -14,7 +17,7 @@ As the name implies, owners are responsible for code which they own. Whenever en
 - If you've determined that you do in fact have a good reason to change code, **contact the owner and state your intentions**. This is important because the owner responsible for the code will know more about it (and all of its implications, "load-bearing" properties, etc.) than you, and this collaboration can ensure that what you're doing is correct and minimizes any possible negative effects from your changes. It's also just polite to give the owner a heads up, because after all it is _their_ code that you're coming in and changing.
 - If there is an emergency - there is a critical bug in the engine that you can fix ASAP even though you don't own the code, contact your Technical Director and inform them of this change.
 
-Just to be clear - you can change code that you own without needing to notify anyone, and ultimately for whatever reason. The burden of reponsibility falls on you in that case, because after all you are the owner of the code you're modifying.
+Just to be clear - you can change code that you own without needing to notify anyone, and ultimately for whatever reason. The burden of responsibility falls on you in that case, because after all you are the owner of the code you're modifying.
 
 ### 2. Self-Documenting Code
 One of Hazel's major engineering goals is to promote easy-to-read, good, clean code. This is a very subjective description, however the idea is that your code should be as readable as possible, even to "junior" engineers. Of course there are areas that simply cannot be simplified, or by doing so would affect the engine negatively, but in all areas this idea of clear, simple, and self-documenting code should be followed. This is more thoroughly explained in the Code Style section with specific examples, and includes things like naming symbols descriptively, preferring verbose descriptive code to auto-generated templates or functional style programming which produces more abstract engineer-facing code that can be harder to understand and see the full extent of computation taking place.

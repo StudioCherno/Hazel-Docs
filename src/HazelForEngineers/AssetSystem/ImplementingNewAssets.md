@@ -1,8 +1,7 @@
-# Implementing New Assets
-
-**NOTE: This article won't be too useful for anyone who isn't actively developing Hazel, but you can still learn a lot about how the asset system works**
-
-Adding custom assets can be a complex task, this guide will show a simple overview of integrating any custom asset with the existing Asset System in such a way that it will accessible from the Content Browser in Hazelnut.
+<div class="title"> 
+    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <h1> Implementing New Assets </h1>
+</div>
 
 ## Converting Your Data Structure To Be An Asset
 * * *
@@ -156,7 +155,7 @@ This is required by certain templated methods in the Asset System.
 
 If you want to associate your asset with a specific file type, you need to modify the `s_AssetExtensionMap` map in `Hazel/Asset/AssetExtensions.h`.
 
-In theory this is all the code neccessary in order to have the Asset System recognize your asset.
+In theory this is all the code necessary in order to have the Asset System recognize your asset.
 This isn't enough to have the Asset Manager import your asset correctly however. In order to have that functionality we need to implement an `AssetSerializer`.
 
 ## Importing/Exporting The Asset

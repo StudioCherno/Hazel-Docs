@@ -92,7 +92,7 @@ h6:target::before {
 .content ol { line-height: 1.45em; }
 .content ul { line-height: 1.45em; }
 .content a { text-decoration: none; }
-.content a:hover { text-decoration: underline; }
+.content a:hover { text-decoration: none; }
 .content img, .content video { max-width: 100%; }
 .content .header:link,
 .content .header:visited {
@@ -129,6 +129,132 @@ table tbody tr:nth-child(2n) {
     background: var(--table-alternate-bg);
 }
 
+.title
+{
+    display:flex;
+    padding: auto;
+}
+
+.title img{
+    max-height: inherit;
+    height: 75px;
+    width: auto;
+}
+
+/* 
+.tableContainer{
+    width: 50%; This will center the columns on mobile devices when the side bar is collapsed.
+    margin: auto;
+}
+*/
+
+.navTable {
+    display: grid;
+    width: fit-content;
+    align-items: stretch;
+    grid-template-columns: repeat( var(--column-count), 1fr);
+    gap: 1em;
+    
+    text-decoration: none; /*turning link highlighting off*/
+    
+    font-size: 2rem;
+    color: var(--fg);
+    
+    position: relative;
+    
+    vertical-align: middle;
+    text-align: center;
+}
+
+.pageContainer {
+    transition: transform 1s ease; /* Animation */
+    max-width: 30em;
+    overflow: hidden;
+    width: var(--column-width);
+    height: auto;
+    border-spacing: 20px;
+    background-color: var(--bg-alt);
+    border: 1px solid var(--theme-popup-bg);
+    box-shadow: 0px 0px 2px #000000;
+    padding-bottom: 0%;
+    -moz-box-shadow: 0px 0px 2px #000000;
+    -webkit-box-shadow: 0px 0px 2px #000000;
+}
+
+/*
+*/
+
+.pageContainer:hover img {
+    transform: scale(1.25);
+    cursor: pointer;
+}
+
+.pageContainer:hover {
+    box-shadow: 0px 0px 8px black;
+    -moz-box-shadow: 0px 0px 8px black;
+    -webkit-box-shadow: 0px 0px 8px black;
+}
+
+.imageContainer {
+    display: block;
+    position:relative;
+    overflow: hidden;
+    width: fit-content;
+    height: auto;
+    max-width: 30rem;
+    max-height: 33.4%;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    top: 0;
+    left: 0;
+}
+
+/*
+*/
+
+.imageContainer img {
+    aspect-ratio: 9/8;
+    position: relative;
+    align-self: center;
+    display: block;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+/*
+
+@media screen and (max-width: 900px) { /*unlock aspect ratio on smaller devices so that the images would cover the entirety of the element
+    .imageContainer img {
+    }
+}
+
+@media screen and (max-width: 725px) { /*unlock aspect ratio on smaller devices so that the images would cover the entirety of the element*
+    .imageContainer img {
+    }    
+}
+*/
+
+.content {
+    padding-bottom: 0.5em;
+}
+
+.subject {
+    margin-top: 1em;
+}
+
+.description{
+    margin-top: 0.5em;
+    margin-bottom: 0em;
+    text-decoration: none;
+    color: rgb(255, 200, 99);
+    color: var(--fg);
+    font-size: medium;
+    text-align: justify left;
+}
 
 blockquote {
     margin: 20px 0;

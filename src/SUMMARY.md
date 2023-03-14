@@ -1,19 +1,31 @@
 # Summary
 
-[Hazel Documentation](./HazelDocumentation.md)
-[Getting Started](GettingStarted.md)
-[Supported Platforms](SupportedPlatforms.md)
-[Developer Guide](DeveloperGuide.md)
+[Hazel Documentation](HazelDocumentation.md)
 
-# Scripting
-- [Extending the API](Scripting/Extending/APIStructure.md)
-	- [Internal Calls](Scripting/Extending/InternalCalls.md)
-	- [Exposing Components](Scripting/Extending/ExposingComponents.md)
+[🛠️ Getting Started](Welcome/GettingStarted.md)
+[🎮 Creating Your First Game in Hazel](WorkingWithinHazel/FirstGameDocumentation.md)
 
-# Asset System
-- [Using](AssetSystem/Using.md)
-- [Implementing New Assets](AssetSystem/ImplementingNewAssets.md)
+- [Working Within Hazel](WorkingWithinHazel/WorkingWithinHazelPage.md)
+	- [Fixing Broken Prefabs](WorkingWithinHazel/FixingBrokenPrefabReferences.md)	
+
+- [Creating Assets For Hazel](ContentForHazel/CreatingAssetsForHazel.md)
+	- [Animation](ContentForHazel/AnimationCreationBlenderTutorial)
 
 # Hazel Release Notes
 
 - [Hazel2023.1](HazelReleaseNotes/Hazel2023.1.md)
+
+# Hazel For Engineers
+
+- [Hazel For Engineers](HazelForEngineers/HazelForEngineersPage.md)
+	- [Developer Guide](HazelForEngineers/DeveloperGuide.md)
+
+- [Asset System](HazelForEngineers/AssetSystem/AssetSystemPage.md)
+	- [RetrievingAssets](HazelForEngineers/AssetSystem/RetrievingAssets.md)
+	- [Implementing New Assets](HazelForEngineers/AssetSystem/ImplementingNewAssets.md)
+
+- [Scripting](HazelForEngineers/Scripting/ScriptingPage.md)
+	- [Extending the API](HazelForEngineers/Scripting/Extending/APIStructure.md)
+	- [Internal Calls](HazelForEngineers/Scripting/Extending/InternalCalls.md)
+	- [Exposing Components](HazelForEngineers/Scripting/Extending/ExposingComponents.md)
+

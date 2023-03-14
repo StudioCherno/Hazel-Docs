@@ -1,4 +1,7 @@
-# Hazel 2023.1 Release Notes 📝
+<div class="title"> 
+    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <h1> Hazel 2023.1 Release Notes 📝 </h1>
+</div>
 
 ## New Features 📈
 
