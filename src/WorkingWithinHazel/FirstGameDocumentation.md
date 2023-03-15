@@ -7,6 +7,8 @@
 
 Welcome to the documentation of making your first game in Hazel! Assuming you have followed the steps in [Getting Started](/Welcome/GettingStarted.md) you should have a working checkout of Hazel. Here we will learn how to make a very basic endless runner in Hazel similar in some aspects to [Alto's Adventure](https://noodlecake.com/games/altos-adventure/). We will be a ball rolling down a hill avoiding obstacles and "dying" on collision.
 
+![Final Game](/res/FirstGameDocumentation/25_Game.gif)
+
 *Although we said endless, to keep the code a little bit simpler for the sake of this tutorial, we will not make it endless, but far enough for no one to get to the end.*
 
 ## 1. Creating a new project
