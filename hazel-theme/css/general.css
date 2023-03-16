@@ -212,9 +212,6 @@ table tbody tr:nth-child(2n) {
     left: 0;
 }
 
-/*
-*/
-
 .imageContainer img {
     aspect-ratio: 9/8;
     position: relative;

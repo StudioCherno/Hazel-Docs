@@ -2,6 +2,9 @@
     <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
     <h1> Getting Started 🛠️ </h1>
 </div>
+
+## Getting Access
+In order to get access to Hazel source code and make use of the page below you have to make sure you are a Patreon [Supporter III](https://www.patreon.com/thecherno) or above. This is the best way of supporting the development of Hazel and it's technologies. 
  
 ## Requirements
 One of our goals is to make Hazel as easy as possible to build - if you're having any difficulties or weird errors, please let us know. We currently only support building on Windows 10 and Windows 11 with Visual Studio 2022, Visual Studio 2019 is no longer supported. The minimum supported version of Visual Studio 2022 is 17.2.0, Hazel may not compile on versions before that. You also need the following installed:
@@ -53,7 +56,7 @@ If you can't find the platform you're looking for on this page you should assume
 ### Fully Supported
 These are the platforms that Hazel has been tested on, and we've determined that Hazel should run without any serious problems.
 
-If you find an issue relating to any of these platforms please open an issue here: [https://github.com/StudioCherno/Hazel/issues]()
+If you find an issue relating to any of these platforms please open an issue here: [https://github.com/StudioCherno/Hazel/issues](https://github.com/StudioCherno/Hazel/issues)
 
 * Windows 10 (64-bit)
 * Windows 11 (64-bit)
