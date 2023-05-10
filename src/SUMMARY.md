@@ -9,7 +9,8 @@
 	- [Fixing Broken Prefabs](WorkingWithinHazel/FixingBrokenPrefabReferences.md)	
 
 - [Creating Assets For Hazel](ContentForHazel/CreatingAssetsForHazel.md)
-	- [Animation](ContentForHazel/AnimationCreationBlenderTutorial.md)
+	- [Animation in Blender](ContentForHazel/AnimationCreationBlenderTutorial.md)
+	- [Mixamo to Hazel](ContentForHazel/MixamoToHazelTutorial.md)
 
 # Hazel Release Notes
 

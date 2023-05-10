@@ -1,6 +1,7 @@
 <div class="title"> 
     <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
     <h1> Animation in Blender for compatibility with Hazel </h1>
+    <img src="/res/BlenderLogo.svg" alt="Blender Logo" />
 </div>
 
 When animating make sure that all the animation data is on the **bone**. ***No object transform data*** will be seen in Hazel.

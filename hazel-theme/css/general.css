@@ -135,10 +135,23 @@ table tbody tr:nth-child(2n) {
     padding: auto;
 }
 
-.title img{
+.title img {
     max-height: inherit;
     height: 75px;
     width: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.page-metadata {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.page-metadata h4{
+    color: var(--icons);
+    font-style: italic;
 }
 
 /* 

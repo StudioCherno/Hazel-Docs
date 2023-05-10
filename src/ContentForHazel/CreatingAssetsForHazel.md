@@ -32,5 +32,22 @@ Here you will find tutorials, detailing our workflows within those programs.
                 </a>
             </div>
         </div>
+        <div class="pageContainer">
+            <div class="pageItem">
+                <a id="pageLink" href="/ContentForHazel/MixamoToHazelTutorial.md">
+                    <div class="imageContainer">
+                        <img data-src="/res/MixamoToHazel.png" src="/res/MixamoToHazel.png" loading="lazy" />
+                    </div>
+                    <div class="info">
+                        <div class="content">
+                            <div class="subject"> 
+                                <div class="text"> Mixamo to Hazel </div> 
+                            </div> 
+                            <div class="description"> A guide on importing assets from Mixamo to Hazel. </div> 
+                        </div> 
+                    </div> 
+                </a>
+            </div>
+        </div>
     </div>
 </div>
