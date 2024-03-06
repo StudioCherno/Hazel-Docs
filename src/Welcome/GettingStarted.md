@@ -13,7 +13,7 @@ Here you'll find a list of all the third-party tools and SDKs that you'll need t
  - [Git](https://git-scm.com/downloads)
  - [Git-LFS](https://git-lfs.github.com/)
  - [Python 3](https://www.python.org/downloads/)
- - [.NET Framework 4.7.2](#net-framework)
+ - [.NET SDK 8.0](#net-sdk)
  - [Vulkan](#vulkan)
 
 Make sure that you add everything except for the .NET Framework SDK to your PATH environment variable. Most likely the installers will give you the option to so automatically.
@@ -27,8 +27,8 @@ Assuming that's all installed and ready to go, you can proceed with the followin
 4. Open `Hazel.sln` and build either `Debug` or `Release` `x64` - Hazelnut should be the startup project so really you can just hit `F5` to build and debug the startup project. By default, this will load the _Sandbox_ project found in `Hazelnut/SandboxProject/Sandbox.hproj`
 5. Open `Hazelnut/SandboxProject/Sandbox.sln` and build in either `Debug` or `Release`. This will build the C# module of the _Sandbox_ project which is necessary to properly play the various scenes in the project.
 
-## .NET Framework
-Hazel makes use of C# as a scripting language, and because of that we also provide a "Hazel-ScriptCore" project, which contains Hazels C# API. This however means that in order to build Hazel you need to have the .NET Framework SDK installed. Hazel makes use of .NET Framework 4.7.2, and all projects that are made in Hazel also use that specific version.
+## .NET SDK
+Hazel makes use of C# as a scripting language, and because of that we also provide a "Hazel-ScriptCore" project, which contains Hazels C# API. This however means that in order to build Hazel you need to have the .NET SDK installed. Hazel makes use of .NET 8.0, and all projects that are made in Hazel also use that specific version.
 
 If you're using Visual Studio to build Hazel you'll have to open the Visual Studio Installer program, and make sure you've selected the ".NET desktop development" workload from the "Workloads" tab, you can find an example of this in the image below.
 

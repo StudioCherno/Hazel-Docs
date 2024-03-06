@@ -13,17 +13,10 @@ When you add the internal calls to the C# API here are some things you need to c
 1. Internal methods should **always** be defined inside the `InternalCalls.cs` file. Never in the classes that use these methods.
 2. Internal methods should **always** be defined inside of a `#region` block to keep the file organized. You can take a look at how other regions are written.
 3. Internal methods should **always** be named in this format: `ClassName_FunctionName`, e.g `TransformComponent_GetTranslation`, or `MeshComponent_GetMaterial`.
-4. Internal methods should **always** be defined as `internal static extern`
+4. Internal methods should **always** be defined as `internal static delegate* unmanaged`
 5. Internal methods should **always** have the same name in C++ as in C#, so a method called `TransformComponent_GetTranslation` should also be called that in C++.
-6. Internal methods **must** be marked with this attribute: `[MethodImpl(MethodImplOptions.InternalCall)]`
-7. If you need to pass primitive types (numerical types, `bool`, `char` or `object`) to an internal call they should be copied, or passed as `out`, not passed as `ref`.
-8. If you need an internal method to return a primitive type, it should either have that type as the return type, or it should be passed as an `out` parameter.
-	E.g `internal static extern bool`, or `internal static extern void SomeClass_SomeFunc(out bool result)`, use `out` if you need to return multiple parameters.
-9. If you need to pass a `struct` to the internal call you **have** to pass it as either `ref` or `out` depending on if the C++ function will read from, or write to the struct
-10. Passing a struct as `ref` means that the C++ function will only read from the struct, never write to it. It's *your* responsibility to follow this rule, Mono won't enforce it.
-11. Passing a struct as `out` means that the C++ function will read from or write to the struct
-12. Passing a struct as `out` or `ref` means that the C++ function will take in an equivalent C++ struct as a pointer
-13. Enums should NOT be passed as `ref` or `out`! They're just primitive types, they can be passed as is if there's a C++ equivalent enum, or they can be passed as int.
+6. If you need to pass `bool` or `object` to an internal call they should be passed as `Coral.Bool32` and `Coral.NativeInstance<object>`.
+7. Internal calls follow `Func` style syntax for declaring parameters and return types, e.g `internal static delegate* unmanaged<int, int, Coral.Bool32>` will take two integers and return a `Coral.Bool32`.
 
 These are some of the basic things you need to keep in mind, feel free to let me know if you think these guidelines should be updated!
 
@@ -57,8 +50,7 @@ public struct MyCustomData
 
 #region MyCustomComponent
 
-[MethodImpl(MethodImplOptions.InternalCall)]
-internal static extern bool MyCustomComponent_GetCustomStruct(ulong entityID, out MyCustomData outData);
+internal static delegate* unmanaged<ulong, MyCustomData*, Coral.Bool32> MyCustomComponent_GetCustomStruct;
 
 #endregion
 
@@ -66,9 +58,9 @@ internal static extern bool MyCustomComponent_GetCustomStruct(ulong entityID, ou
 
 ```
 
-Here you can see we define the internal call, it returns a `bool`, and takes in two parameters, the `entityID´ parameter is just for consistency here, all C# components have to pass the entity's ID to C++ so the engine can know what entity the component belongs to.
+Here you can see we define the internal call, it returns a `bool`, and takes in two parameters, the `ulong` parameter is just for consistency here, all C# components have to pass the entity's ID to C++ so the engine can know what entity the component belongs to.
 
-And it also takes our custom struct as an `out` parameter, this means that we expect C++ to write some data into this struct, but it can also read from it.
+And it also takes a pointer to our custom struct, this means that we expect C++ to write some data into this struct, but it can also read from it.
 
 That's really all you need to do in order to define the method in C#. Then in C++ we'll add this code:
 ```cpp
@@ -87,7 +79,7 @@ namespace InternalCalls {
 
 #pragma region MyCustomComponent
 
-bool MyCustomComponent_GetCustomStruct(uint64_t entityID, MyCustomData* outData);
+Coral::Bool32 MyCustomComponent_GetCustomStruct(uint64_t entityID, OutParam<MyCustomData> outData);
 
 #pragma endregion
 
@@ -104,7 +96,7 @@ namespace InternalCalls {
 
 #pragma region MyCustomComponent
 
-bool MyCustomComponent_GetCustomStruct(uint64_t entityID, MyCustomData* outData)
+Coral::Bool32 MyCustomComponent_GetCustomStruct(uint64_t entityID, OutParam<MyCustomData> outData)
 {
 	// NOTE: Dummy code, look at the existing internal calls for reference
 	if (!is_entity_valid)
@@ -121,8 +113,8 @@ bool MyCustomComponent_GetCustomStruct(uint64_t entityID, MyCustomData* outData)
 
 	*outData = myCustomComponent.MyData;
 	// OR:
-	*outData.MyFloat = someFloatValue;
-	*outData.SomeInt = someIntValue;
+	outData->MyFloat = someFloatValue;
+	outData->SomeInt = someIntValue;
 	return true;
 }
 
@@ -133,3 +125,5 @@ bool MyCustomComponent_GetCustomStruct(uint64_t entityID, MyCustomData* outData)
 ```
 
 This just covers the basics of adding internal calls, but it should give you an idea as to how it's done.
+
+Also keep in mind that your C++ and C# struct need to have the exact same memory layout, including things like padding. This *can* involve manually adding padding to your C# struct.

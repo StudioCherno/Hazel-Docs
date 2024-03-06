@@ -29,8 +29,12 @@ public Mesh ColliderMesh
 {
 	get
 	{
-		InternalCalls.MeshColliderComponent_GetColliderMesh(Entity.ID, out AssetHandle outMeshHandle);
-		return new Mesh(outMeshHandle);
+		unsafe 
+		{
+			AssetHandle meshHandle;
+			InternalCalls.MeshColliderComponent_GetColliderMesh(Entity.ID, &meshHandle);
+			return new Mesh(meshHandle);
+		}
 	}
 }
 
@@ -44,9 +48,15 @@ public AssetHandle ColliderMeshHandle
 {
 	get
 	{
-		if (!InternalCalls.MeshColliderComponent_GetColliderMesh(Entity.ID, out AssetHandle colliderHandle))
-			return AssetHandle.Invalid;
-		return colliderHandle;
+		unsafe 
+		{
+			AssetHandle colliderHandle;
+			if (!InternalCalls.MeshColliderComponent_GetColliderMesh(Entity.ID, &colliderHandle))
+			{
+				return AssetHandle.Invalid;
+			}
+			return colliderHandle;
+		}
 	}
 }
 
