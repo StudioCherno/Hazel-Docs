@@ -46,7 +46,7 @@ Open `Hazel-Runtime`'s property pages (right-click on `Hazel-Runtime` in the Sol
 
 By default, Hazel 2024.1 ships with this `WorkingDirectory` setting set to `"../Hazelnut"`, as seen above. This is useful during development, because it will use all required core engine resources straight from the repository you are working in, since these resources reside within the `Hazelnut` directory.
 
-You will almost certainly want to remove or change this setting if running a project other than Sandbox.
+You will almost certainly want to remove or change this setting when creating a build for use outside the Hazel solution in Visual Studio.
 
 ### Loading Your Project
 
