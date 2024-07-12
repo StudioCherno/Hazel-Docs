@@ -7,12 +7,12 @@ In order to distribute your game as a standalone executable rather than an edito
 
 This Hazel Runtime project is what you distribute when you ship your game. As a standalone C++ executable, you have the freedom to customize specific details to suit your distribution needs, from configuring engine systems to adding build information and icons, to adding custom code and dependencies.
 
-In order to run your project in the runtime, you first need to build it from Hazel's editor. We'll go over how to do this for the included Sandbox project, however this process is basically the same for any project - you just might have to tweak some variables.
+To run your project in the runtime, you first need to build it from Hazel's editor. We'll go over how to do this for the included Sandbox project, however this process is basically the same for any project - you just might have to tweak some variables.
 
 ## Step 1 - Build Your Project
 The first step is to build your C# code and project data/assets. Make sure that `Coral.Managed`, `Hazel-ScriptCore`, and your C# project (`Sandbox` in this case) have built successfully. Make sure you can hit the Play button in the editor, and your game plays as expected (this will ensure scripts have been properly built).
 
-Make sure your Startup Scene is set correctly in your Project Settings (Edit->Project Settings) as this will determine the first scene to load when you launch your game.
+Ensure your Startup Scene is set correctly in your Project Settings (Edit->Project Settings) as this will determine the first scene to load when you launch your game.
 
 ![Startup Scene](../res/RuntimeShipping/StartupScene.jpg)
 
