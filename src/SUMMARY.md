@@ -4,6 +4,7 @@
 
 [🛠️ Getting Started](Welcome/GettingStarted.md)
 [🎮 Creating Your First Game in Hazel](WorkingWithinHazel/FirstGameDocumentation.md)
+[🚀 The Runtime and Shipping Your Game](WorkingWithinHazel/RuntimeShipping.md)
 
 - [Working Within Hazel](WorkingWithinHazel/WorkingWithinHazelPage.md)
 	- [Fixing Broken Prefabs](WorkingWithinHazel/FixingBrokenPrefabReferences.md)	
