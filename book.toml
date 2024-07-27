@@ -9,3 +9,4 @@ theme = "hazel-theme"
 default-theme = "hazel"
 google-analytics = "G-0VYYKNCH1P"
 additional-css = ["hazel-theme/custom.css", "hazel-theme/hazel-highlight.css"]
+smart-punctuation = true

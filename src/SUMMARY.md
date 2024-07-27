@@ -13,6 +13,10 @@
 	- [Animation in Blender](ContentForHazel/AnimationCreationBlenderTutorial.md)
 	- [Mixamo to Hazel](ContentForHazel/MixamoToHazelTutorial.md)
 
+- [Hazel on Linux](HazelOnLinux/Linux.md)
+	- [Environment and Building](HazelOnLinux/Building.md)
+	- [Workflow Changes](HazelOnLinux/Workflow.md)
+
 # Hazel Release Notes
 
 - [Hazel2023.1](HazelReleaseNotes/Hazel2023.1.md)
