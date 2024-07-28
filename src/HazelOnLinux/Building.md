@@ -31,15 +31,16 @@ Finally, you should clone Hazel using `git clone --recursive -b dev https://gith
 
 **2. Building**
 
-The Docker build has been encapsulated in `scripts/Docker-Build.sh` which invokes docker with the appropriate flags and copies out the resultant binaries. At present, this process only produces a debug Hazelnut binary at present (alongside any binaries required from dependencies).
+The Docker build has been encapsulated in `scripts/Docker-Build.sh` which invokes docker with the appropriate flags and copies out the resultant binaries  (alongside any binaries required from dependencies).
 
 The script *does **NOT*** support out of tree builds at present, and attempting to execute it outside of the Hazel root directory will likely create broken orphaned containers. 
 
 The script accepts passthrough flags to docker itself; these expose the following variables which can be set via. `--build-arg VAR=value`:
-| Name       | Description                           | Default |
-| ---        | ---                                   | ---     |
-| `NPROC`    | Sets the build parallelism for `make` | `1`     |
-| `CXXFLAGS` | Sets additional C++ compile flags     | `-`     |
+| Name           | Description                             | Default |
+| ---            | ---                                     | ---     |
+| `NPROC`        | Sets the build parallelism for `make`   | `1`     |
+| `CXXFLAGS`     | Sets additional C++ compile flags       | `-`     |
+| `BUILD_CONFIG` | Sets build mode to `Debug` or `Release` | `-`     |
 
 The recommended invocation is:
 ```
@@ -49,17 +50,18 @@ In order to make use of maximum parallelism and suppress all warnings.
 
 > This process is known to take a long time on initial builds. Having adequate parallelism set in the `NPROC` variable mitigates this factor but a fresh clone will still likely take several minutes.
 
-After the script is done -- the Hazelnut binary and required dependencies will have been copied out to `bin`. The Docker build also builds the Sandbox project for convenience, although the ScriptCore `.dll` is copied out to its appropriate location, so C# project builds can be performed outside of Docker as-usual.
+After the script is done -- the Hazel binaries and required dependencies will have been copied out to `bin`. The Docker build also builds the Sandbox project for convenience, although the ScriptCore `.dll` is copied out to its appropriate location, so C# project builds can be performed outside of Docker as-usual.
 
 **3. Running**
 
-Before running Hazelnut from the Docker build -- you must set the following variables from the Hazel root directory:
+Before running Hazel tools from the Docker build -- you must set the following variables from the Hazel root directory:
 ```
 export HAZEL_DIR=$(realpath .)
 export VULKAN_SDK=$(realpath bin/x86_64)
 export LD_LIBRARY_PATH=$(realpath bin/)
 ```
-Then, to run Hazelnut, use:
+
+To run Hazelnut, use:
 ```
 cd Hazelnut
 ../bin/Hazelnut [project]
@@ -113,10 +115,16 @@ The resultant outputs are placed into `bin/` in a subdirectory named based on th
 
 **3. Running**
 
-Before running Hazelnut -- you must set the following variables from the Hazel root directory:
+Before running Hazel tools -- you must set the following variables from the Hazel root directory:
 ```
-export HAZEL_DIR=$(realpath .)
-export VULKAN_SDK=$(realpath Hazel/vendor/VulkanSDK/x86_64)
+export HAZEL_DIR=`realpath .`
+export VULKAN_SDK=`realpath Hazel/vendor/VulkanSDK/x86_64`
+export LD_LIBRARY_PATH="$VULKAN_SDK/lib:$HAZEL_DIR/Hazel/vendor/assimp/bin/linux:$HAZEL_DIR/Hazel/vendor/NvidiaAftermath/lib/x64/linux"
 ```
 
-Then, `cd` into the `Hazelnut/` directory and run `../bin/$BUILD_CONFIG-linux-x86_64/Hazelnut/Hazelnut`.
+To run Hazelnut, use:
+```
+cd Hazelnut
+../$BUILD_CONFIG-linux-$(uname -m)/Hazelnut [project]
+```
+If no project is specified in `argv`, the Sandbox project will be opened.
