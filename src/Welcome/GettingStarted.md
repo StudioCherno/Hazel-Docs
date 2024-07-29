@@ -19,6 +19,9 @@ Here you'll find a list of all the third-party tools and SDKs that you'll need t
 Make sure that you add everything except for the .NET Framework SDK to your PATH environment variable. Most likely the installers will give you the option to so automatically.
 
 ## Building and Running
+
+> The following information is for Windows only. For information on getting started with Hazel on Linux -- please see [Hazel on Linux](/HazelOnLinux/Linux.md)
+
 Assuming that's all installed and ready to go, you can proceed with the following:
 
 1. Clone the repository: `git clone --recursive https://github.com/StudioCherno/Hazel.git`
@@ -64,12 +67,18 @@ If you find an issue relating to any of these platforms please open an issue her
 
 **NOTE:** Hazel currently only considers 64-bit Windows versions supported, and it's unlikely that 32-bit support will ever be added
 
+### Experimental Support
+These are platforms whose support is still in active development. Expect some instability or shortcomings in workflow.
+
+As above, please consider reporting any issues you encounter.
+
+* Linux Based Systems
+
 ### Unsupported Platforms
 These are platforms that Hazel most likely won't work on.
 
 * Windows 7
 * MacOS
-* Linux Based Platforms (May eventually be supported)
 
 ### Supported Editors + Toolchains
 Hazel will in theory support any IDE or toolchain that [https://premake.github.io/docs/Using-Premake#using-premake-to-generate-project-files](premake) supports, however we've only tested the toolchains/IDEs listed below.
