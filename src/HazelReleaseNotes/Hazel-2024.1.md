@@ -24,7 +24,7 @@ Hazel 2024.1 includes a new C# scripting engine called [Coral](https://github.co
 
 Coral is a C++/C# wrapper around the .NET CoreCLR library, with the purpose of providing a native interface similar to Mono, but in a more modern style, using .NET Core instead of .NET Framework.
 
-Hazel now requries .NET 8 ([see .NET SDK on the Getting Started page](/Welcome/GettingStarted#.NET-SDK)).
+Hazel now requries .NET 8 ([see .NET SDK on the Getting Started page](/Welcome/GettingStarted#net-sdk)).
 
 ### Async Asset System
 Hazel 2024.1 introduces an asynchronous asset system which runs on an asset thread, improving performance and usability. Benefits include:
