@@ -1,5 +1,5 @@
 <div class="title"> 
-    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <img src="/res/Hazel-IconLogo-2023.png" alt="Hazel Logo" />
     <h1> Hazel Documentation </h1>
 </div>
 
@@ -96,15 +96,15 @@ This site will continue to grow and house the documentation for using Hazel. Che
         </div>
         <div class="pageContainer">
             <div class="pageItem">
-                <a id="pageLink" href="/HazelReleaseNotes/Hazel2023.1.md">
+                <a id="pageLink" href="/HazelReleaseNotes/Hazel-2024.1.md">
                     <div class="imageContainer">
-                        <img data-src="/res/Hazel2023_1.png" src="/res/Hazel2023_1.png" loading="lazy" />
+                        <img data-src="/res/Hazel-2024.1.jpg" src="/res/Hazel-2024.1.jpg" loading="lazy" />
                     </div>
                     <div class="info">
                         <div class="content">
                             <div class="subject"> 
                                 <div class="text"> Release Notes </div>
-                                <div class="description"> Hazel 2023.1 release notes detailing the features added, systems developed, and bugs fixed!</div>
+                                <div class="description"> Hazel 2024.1 release notes contain information on the latest features, changes and bug fixes!</div>
                             </div> 
                         </div> 
                     </div> 

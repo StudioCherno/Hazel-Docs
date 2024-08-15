@@ -1,5 +1,5 @@
 <div class="title"> 
-    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <img src="/res/Hazel-IconLogo-2023.png" alt="Hazel Logo" />
     <h1> Exposing Components from C++ to C# </h1>
 </div>
 This page will tell you all the necessary steps you'll need to follow in order to expose a component from C++ to C#.

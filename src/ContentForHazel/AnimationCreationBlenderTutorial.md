@@ -1,5 +1,5 @@
 <div class="title"> 
-    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <img src="/res/Hazel-IconLogo-2023.png" alt="Hazel Logo" />
     <h1> Animation in Blender for compatibility with Hazel </h1>
     <img src="/res/BlenderLogo.svg" alt="Blender Logo" />
 </div>

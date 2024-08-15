@@ -1,5 +1,5 @@
 <div class="title"> 
-    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <img src="/res/Hazel-IconLogo-2023.png" alt="Hazel Logo" />
     <h1> Getting Started 🛠️ </h1>
 </div>
 
@@ -18,17 +18,17 @@ Here you'll find a list of all the third-party tools and SDKs that you'll need t
 
 Make sure that you add everything except for the .NET Framework SDK to your PATH environment variable. Most likely the installers will give you the option to so automatically.
 
+Hazel also (experimentally) supports Linux, please see [Hazel on Linux](/HazelOnLinux/Linux.md) for more information.
+
 ## Building and Running
 
 > The following information is for Windows only. For information on getting started with Hazel on Linux -- please see [Hazel on Linux](/HazelOnLinux/Linux.md)
 
 Assuming that's all installed and ready to go, you can proceed with the following:
 
-1. Clone the repository: `git clone --recursive https://github.com/StudioCherno/Hazel.git`
-2. Add an environment variable called `HAZEL_DIR` that contains the file path to the root Hazel folder (e.g `C:/Dev/Hazel`)
-3. Run `Scripts/Setup.bat` - this will download required libraries and make sure everything is setup correctly
-4. Open `Hazel.sln` and build either `Debug` or `Release` `x64` - Hazelnut should be the startup project so really you can just hit `F5` to build and debug the startup project. By default, this will load the _Sandbox_ project found in `Hazelnut/SandboxProject/Sandbox.hproj`
-5. Open `Hazelnut/SandboxProject/Sandbox.sln` and build in either `Debug` or `Release`. This will build the C# module of the _Sandbox_ project which is necessary to properly play the various scenes in the project.
+1. Clone the repository: `git clone --recursive https://github.com/StudioCherno/Hazel`
+2. Run `Scripts/Setup.bat` - this will setup the current repository as your active Hazel installation and generate project files so you can build Hazel
+3. Open `Hazel.sln` (in the root of the repository) and build the entire solution in either `Debug` or `Release` `x64` (Build -> Build Solution). You can then run the `Hazelnut` project which should be your startup project. By default, this will load the _Sandbox_ project found in `Hazelnut/SandboxProject/Sandbox.hproj`
 
 ## .NET SDK
 Hazel makes use of C# as a scripting language, and because of that we also provide a "Hazel-ScriptCore" project, which contains Hazels C# API. This however means that in order to build Hazel you need to have the .NET SDK installed. Hazel makes use of .NET 8.0, and all projects that are made in Hazel also use that specific version.

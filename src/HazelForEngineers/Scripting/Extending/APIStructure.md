@@ -1,5 +1,5 @@
 <div class="title"> 
-    <img src="/res/HazelGradientLogo-Square.png" alt="Hazel Logo" />
+    <img src="/res/Hazel-IconLogo-2023.png" alt="Hazel Logo" />
     <h1> C# API Structure </h1>
 </div>
 This page will simply explain the general structure of the C# API, what features / systems belong where, what files are relevant to what topic, etc...

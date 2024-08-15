@@ -19,7 +19,8 @@
 
 # Hazel Release Notes
 
-- [Hazel2023.1](HazelReleaseNotes/Hazel2023.1.md)
+- [Hazel 2024.1](HazelReleaseNotes/Hazel-2024.1.md)
+- [Hazel 2023.1](HazelReleaseNotes/Hazel-2023.1.md)
 
 # Hazel For Engineers
 
