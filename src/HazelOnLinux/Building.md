@@ -37,7 +37,7 @@ The script *does **NOT*** support out of tree builds at present, and attempting 
 
 The script accepts passthrough flags to docker itself; these expose the following variables which can be set via. `--build-arg VAR=value`:
 | Name           | Description                             | Default |
-| ---            | ---                                     | ---     |
+|----------------|-----------------------------------------|---------|
 | `NPROC`        | Sets the build parallelism for `make`   | `1`     |
 | `CXXFLAGS`     | Sets additional C++ compile flags       | `-`     |
 | `BUILD_CONFIG` | Sets build mode to `Debug` or `Release` | `-`     |
@@ -86,7 +86,7 @@ Supported/Tested build toolchain elements are listed below. Please note that thi
 whilst only `glibc` is tested at present, we are willing to maintain `musl` support if issues are submitted; otherwise, alternate C/C++ compilers/standard libraries other than those listed below
 will be unlikely to recieve official support.
 | Tool                 | Supported                                                                                                                                                   | Recommended        |
-| ---                  | ---                                                                                                                                                         | ---                |
+|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | C/C++ Compiler       | [GCC](https://www.gnu.org/software/gcc/)<br>[Clang](https://github.com/llvm/llvm-project)                                                                   | Clang              |
 | `ar` Archive Tool    | [GNU Binutils `ar`](https://www.gnu.org/software/binutils/)<br>[LLVM `llvm-ar`](https://github.com/llvm/llvm-project)                                       | LLVM `llvm-ar`     |
 | Linker               | [GNU Binutils `ld`](https://www.gnu.org/software/binutils/)<br>[LLVM `lld`](https://github.com/llvm/llvm-project)<br>[Mold](https://github.com/rui314/mold) | Mold               |
