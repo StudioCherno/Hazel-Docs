@@ -32,6 +32,7 @@
 	- [Implementing New Assets](HazelForEngineers/AssetSystem/ImplementingNewAssets.md)
 
 - [Scripting](HazelForEngineers/Scripting/ScriptingPage.md)
+	- [New Script Glue Development Guidelines](HazelForEngineers/Scripting/Extending/ScriptGlue.md)
 	- [Extending the API](HazelForEngineers/Scripting/Extending/APIStructure.md)
 	- [Internal Calls](HazelForEngineers/Scripting/Extending/InternalCalls.md)
 	- [Exposing Components](HazelForEngineers/Scripting/Extending/ExposingComponents.md)
