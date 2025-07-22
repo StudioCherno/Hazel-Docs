@@ -723,7 +723,7 @@ With this the audio should be working! And now we are ready to build our game!
 
 ## 17. Building the Game
 
-See [The Runtime and Shipping Your Game](/WorkingWithHazel/RuntimeShipping.md)
+See [The Runtime and Shipping Your Game](/WorkingWithinHazel/RuntimeShipping.md)
 
 ![First Game](/res/FirstGameDocumentation/24_FirstGame.png)
 
