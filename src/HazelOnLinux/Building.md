@@ -87,7 +87,7 @@ whilst only `glibc` is tested at present, we are willing to maintain `musl` supp
 will be unlikely to recieve official support.
 | Tool                 | Supported                                                                                                                                                   | Recommended        |
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
-| C/C++ Compiler       | [GCC](https://www.gnu.org/software/gcc/)<br>[Clang](https://github.com/llvm/llvm-project)                                                                   | Clang              |
+| C/C++ Compiler       | [`gcc`](https://www.gnu.org/software/gcc/)<br>[`clang`](https://github.com/llvm/llvm-project)                                                               | Clang              |
 | `ar` Archive Tool    | [GNU Binutils `ar`](https://www.gnu.org/software/binutils/)<br>[LLVM `llvm-ar`](https://github.com/llvm/llvm-project)                                       | LLVM `llvm-ar`     |
 | Linker               | [GNU Binutils `ld`](https://www.gnu.org/software/binutils/)<br>[LLVM `lld`](https://github.com/llvm/llvm-project)<br>[Mold](https://github.com/rui314/mold) | Mold               |
 | C++ Standard Library | [GNU `libstdc++`](https://www.gnu.org/software/gcc/)<br>[LLVM `libc++`](https://github.com/llvm/llvm-project)                                               | `-`                |

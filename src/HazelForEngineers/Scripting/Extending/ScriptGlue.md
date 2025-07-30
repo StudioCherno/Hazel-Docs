@@ -4,17 +4,14 @@
 </div>
 
 > ### Note
-> This is marked as "new"
-> [until ScriptGen is merged](https://github.com/StudioCherno/Hazel/pull/91)
-> as well as to keep the previous workflow docs around until they age out of
-> release.
+> This is marked as "new" to keep the previous workflow docs around until they
+> age out of release.
 
 ### Overview
 
 Files in `Hazel/src/Hazel/Script/ScriptGlue` are treated as sources for script
 glue code generation. They are compiled as-usual but to ensure interop
-functions are correctly selected for generation they need to be named with
-`ScriptGlue_` as the start of their identifier. They must also be in the
+functions are correctly selected for generation they need to be in the
 `Hazel::InternalCalls` namespace.
 
 These are processed into both the script glue binding code -- i.e. assigning
@@ -41,13 +38,16 @@ under `LLVM-{version}-win64.exe` or via. the Visual Studio installer as the
 
 ### Workflow
 1) New function that you want exposed to managed code is added to a source file 
-in `Hazel/src/Hazel/Script/ScriptGlue`. The function name must begin with
-`ScriptGlue_` and be in the `Hazel::InternalCalls` namespace  to be discovered.
+in `Hazel/src/Hazel/Script/ScriptGlue`. The function name must be in the
+`Hazel::InternalCalls` namespace to be discovered.
+**Note that all functions which match these criteria will be consumed**;
+helpers should either be placed into an outer `Hazel` namespace or into
+`ScriptGlue.h/cpp`.
 ```c++
 namespace Hazel::InternalCalls {
     // Would be exposed in managed code as
-    // `InternalCalls.ScriptGlue_MyNewThing_NewFunction`
-    void ScriptGlue_MyNewThing_NewFunction(int someParameter) {
+    // `InternalCalls.MyNewThing_NewFunction`
+    void MyNewThing_NewFunction(int someParameter) {
         ...
     }
 }
@@ -87,7 +87,7 @@ namespace Hazel
     {
         public static void NewFunction(int someParameter)
         {
-            unsafe { return InternalCalls.ScriptGlue_MyNewThing_NewFunction(someParameter); }
+            unsafe { return InternalCalls.MyNewThing_NewFunction(someParameter); }
         }
     }
 }
