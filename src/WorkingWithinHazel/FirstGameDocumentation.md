@@ -3,7 +3,7 @@
     <h1> Creating Your First Game in Hazel 🎮</h1>
 </div>
 
-
+> **NOTE:** This tutorial is for an older version of Hazel which may differ from more recent versions!
 
 Welcome to the documentation of making your first game in Hazel! Assuming you have followed the steps in [Getting Started](/Welcome/GettingStarted.md) you should have a working checkout of Hazel. Here we will learn how to make a very basic endless runner in Hazel similar in some aspects to [Alto's Adventure](https://noodlecake.com/games/altos-adventure/). We will be a ball rolling down a hill avoiding obstacles and "dying" on collision.
 
@@ -723,21 +723,7 @@ With this the audio should be working! And now we are ready to build our game!
 
 ## 17. Building the Game
 
-1. Build the Game's Visual Studio Solution
-2. Save the scene.
-3. Build the Sound Bank 
-4. Build the Asset Pack : `File -> Build Asset Pack`
-5. Exit Hazelnut
-6. Open the project's Asset Registry in Visual Studio: `AssetRegistry.hzr` located in Assets Folder.
-7. Find the Scene ID: `Ctrl + F -> search for "Game.hscene"`
-8. Copy the ID.
-9. In Hazel's Visual Studio Solution, `Ctrl + T -> search for "RuntimeLayer.cpp"`
-10. In RuntimeLayer.cpp `Ctrl + F -> search for void RuntimeLayer::OpenProject()`
-11. Replace the ID in the `LoadScene` function with the ID that we copied from the AssetRegistry.
-12. If you've modified the location of your asset pack then change the `defaultAssetPackPath` with your path.
-13. Set the startup project to be the `Hazel-Runtime` Project. `Right Click on the project -> Set as Startup Project`.
-14. Compile and Run. 
-15. You have now made your very first game in Hazel!
+See [The Runtime and Shipping Your Game](/WorkingWithinHazel/RuntimeShipping.md)
 
 ![First Game](/res/FirstGameDocumentation/24_FirstGame.png)
 
