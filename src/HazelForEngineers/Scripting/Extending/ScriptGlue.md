@@ -54,10 +54,7 @@ namespace Hazel::InternalCalls {
 ```
 
 2) Run `scripts/ScriptGen.py` from the Hazel root directory to generate the
-C++ side interface. The generation script may take several minutes to generate
-so this should only be performed once the final API changes for your commit
-are prepared. During local dev cycles it is okay to simply insert your
-declarations into the generated sources to avoid this time penalty.
+C++ side interface.
 ```bash
 python3 scripts/ScriptGen.py -t cxx -C Hazel/src/Hazel/Script/ScriptGlue -o Hazel/src/Hazel/Script/ScriptGenOutput.cpp -l Hazel-ScriptGen/Source/Template.cpp -s {{CLANG SYSTEM PATH}}
 ```
